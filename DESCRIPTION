@@ -1,0 +1,21 @@
+Package: usgazetteer
+Type: Package
+Title: Data Package for Gazetteer Files from U.S. Census Bureau
+Version: 0.1.0
+Authors@R: person("Bhaskar", "Karambelkar", email = "bhaskarvk@gmail.com",
+    role = c("aut", "cre"))
+Description: For now just the Gazetteer files as list of data.frames.
+    See README.md for details.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R(>= 3.2.0)
+Imports:
+    dplyr
+Suggests:
+    rvest,
+    magrittr,
+    purrr,
+    memoise
+RoxygenNote: 5.0.1
