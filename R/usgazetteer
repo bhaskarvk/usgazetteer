@@ -1,3 +1,11 @@
+#' 2010 State Gazetteer data
+#'
+#' data.frame containing U.S. States and Territories
+#'
+#' @format A data.frame with all U.S. States and Territories along with their FIPS/GNIS IDs and land and water areas.
+#' @source \url{http://www.census.gov/geo/reference/state-area.html}
+"state.areas.2010"
+
 #' 2015 Gazetteer data
 #'
 #' A list of datasets containing 2015 Gazetteer data from U.S. Census Bureau.

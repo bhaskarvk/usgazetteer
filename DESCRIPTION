@@ -1,7 +1,7 @@
 Package: usgazetteer
 Type: Package
 Title: Data Package for Gazetteer Files from U.S. Census Bureau
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Bhaskar", "Karambelkar", email = "bhaskarvk@gmail.com",
     role = c("aut", "cre"))
 Description: For now just the Gazetteer files as list of data.frames.
