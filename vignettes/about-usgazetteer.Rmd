@@ -37,7 +37,7 @@ Every geo data uses some kind of ID to uniquely determine a geographic entity. T
 
 The package contains one data.frame called `state.areas.2010` and 5 lists, `gazetteer.2010`, `gazetteer.2012`, `gazetteer.2013`, `gazetteer.2014`, and `gazetteer.2015`.
 
-**state.area.2010** contains state level gazetteer data, compiled from data from [U.S. Census Bureau](https://www.census.gov/geo/reference/state-area.html), and Wikipedia](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations). In all the data.frame has 77 rows, 50 states + DC + Territories.
+**state.area.2010** contains state level gazetteer data, compiled from data from [U.S. Census Bureau](https://www.census.gov/geo/reference/state-area.html), and [Wikipedia](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations). In all the data.frame has 77 rows, 50 states + DC + Territories.
 
 Here's a small sample of it.
 
