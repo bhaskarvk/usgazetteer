@@ -1,0 +1,74 @@
+---
+title: "U.S. Census Gazetteer Data"
+author: "Bhaskar V. Karambelkar"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{U.S. Census Gazetteer Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Gazetteer
+
+Wikipedia defines a [Gazetteer](https://en.wikipedia.org/wiki/Gazetteer) as:
+
+> A gazetteer is a geographical dictionary or directory used in conjunction with a map or atlas.
+
+This is exactly what you get from this package, the [gazetteer data](https://www.census.gov/geo/maps-data/data/gazetteer.html) that is released under public domain from [U.S. Census Bureau](https://www.census.gov/) all nicely packaged as R data structures.
+
+### Some Core Concepts
+
+Before diving into the data it will be helpful if you familiarize yourself with some core concepts related to the U.S. census data. Instead of repeating the information here, I'm simply linking to pages from the census bureau site. If you are new to this data I highly encourage you to read the links below.
+
+- The [Geographic Areas Reference Manual](http://www.census.gov/geo/reference/garm.html) (GARM) describes in great detail the basic geographic entities the Census Bureau used in its various data tabulations.
+- The [Web Atlas](http://www.census.gov/geo/reference/webatlas/) shows standard hierarchy of census geographic entities displays the relationships between legal, administrative, and statistical boundaries maintained by the U.S. Census Bureau.
+- [Glossary of Metropolitan-Related Terms](http://www.census.gov/population/metro/data/glossary.html)
+- http://www2.census.gov/geo/pdfs/reference/GTC_10.pdf (! PDF link)
+- http://www2.census.gov/geo/pdfs/reference/glossry2.pdf (! PDF link)
+
+Every geo data uses some kind of ID to uniquely determine a geographic entity. The links below will help you understand the various **types of geo IDs** in use. Understanding these types of IDs is essential to joining the gazetteer data with geo-spatial data from other sources.
+
+- http://www.census.gov/geo/reference/geoidentifiers.html
+- http://www.census.gov/geo/reference/geocodes.html
+- http://www.census.gov/geo/reference/ansi.html
+
+### The Data
+
+The package contains one data.frame called `state.areas.2010` and 5 lists, `gazetteer.2010`, `gazetteer.2012`, `gazetteer.2013`, `gazetteer.2014`, and `gazetteer.2015`.
+
+**state.area.2010** contains state level gazetteer data, compiled from data from [U.S. Census Bureau](https://www.census.gov/geo/reference/state-area.html), and Wikipedia](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations). In all the data.frame has 77 rows, 50 states + DC + Territories.
+
+Here's a small sample of it.
+
+```{r, results = "asis", echo=FALSE}
+load("../data/state.areas.2010.rda")
+knitr::kable(head(state.areas.2010[,c(1:9,23,24)]), format = 'html')
+```
+
+You get various geo-IDs for each state including FIPS/GNISID/USPS/USCG as well as land and water areas and coordinates for an internal point in the state.
+
+In addition to the state level data, the `gazetteer.20*` lists each contain data.frames for gazetteer data for each type of geographic entity. Each element of the list is assigned a name that indicates the data that element holds. The suffix of the list name is indicative of the year for which the data was relased. e.g. gazetteer.2015 contains data valid from 2015.
+
+e.g. The names of data stored in the `gazetteer.2015` list is shown below.
+
+```{r, results = "asis", echo=FALSE}
+load("../data/gazetteer.2015.rda")
+knitr::kable(data.frame(`Data Name`=names(gazetteer.2015)), format = 'html')
+```
+
+You can retrieve the names of any list using the standard `names(<list>)` call. e.g. `names(gazetteer.2014)`
+
+To retrieve information from any particular gazetteer simply reference it from the list by its name.
+
+```{r, results = "asis"}
+counties.2015 <- gazetteer.2015$Counties
+knitr::kable(head(counties.2015[,c(1:4,9:12)]),  format = 'html')
+```
+
+### Using the Gazetteer Data
+
+While the data on its own is not very useful, it is very much useful when working with geo-spatial data obtained from other sources. It allows you to map names of geographic entities (states,counties, congressional districts etc.) to their corresponding geoids. It also gives you some useful data like land/water/total area of each entity as well as latitude/longitude values of an internal point in that said entity. These can be used to normalize geo-data by area (using the land/water/total area) or place labels/markers on geographic entities when mapping them.
+
+Lastly this is perhaps the authoritative source of data of this kind. So while there are other packages that offer similar data, none offer so much comprehensive data in one place. This package along with the `acs` package, which allows you to query dynamic census data, and the `tigris` package which allows you to pull census shapefiles, provide comprehensive resources for any need you may have when it comes to obtaining/analyzing/plotting data from the U.S. Census Bureau. 
+

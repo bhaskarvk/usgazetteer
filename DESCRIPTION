@@ -17,5 +17,8 @@ Suggests:
     rvest,
     magrittr,
     purrr,
-    memoise
+    memoise,
+    knitr,
+    rmarkdown
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr
