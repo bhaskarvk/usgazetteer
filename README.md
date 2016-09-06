@@ -46,9 +46,3 @@ counties.2015 <- gazetteer.2015$Counties
 
 <br/>
 All the gazetteer files from 2010 to 2015 are obtained from http://www.census.gov/geo/maps-data/data/gazetteer.html. All the data found on the census.gov site is released under public domain.
-
-## TODO
-
-- Write demo/vignettes 
-- ???
-- Profit

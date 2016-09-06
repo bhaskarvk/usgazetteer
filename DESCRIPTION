@@ -21,4 +21,6 @@ Suggests:
     knitr,
     rmarkdown
 RoxygenNote: 5.0.1
-VignetteBuilder: knitr
+VignetteBuilder: rmarkdown
+URL: https://github.com/bhaskarvk/usgazetteer
+BugReports: https://github.com/bhaskarvk/usgazetteer/issues
