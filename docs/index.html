@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Home. usgazetteer 0.1.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">usgazetteer 0.1.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <div class="row">
+  <div class="span8">
+    <h1>R package for Post-2010 Census U.S. gazetteer data</h1>
+
+<p><strong>License</strong></p>
+
+<p>This package is released under <a href="http://opensource.org/licenses/mit-license.php">MIT license</a>. The data itself comes from <a href="http://www.census.gov/">U.S. Census Bureau</a> who release it under <a href="https://ask.census.gov/faq.php?id=5000&amp;faqId=537">public domain</a>.</p>
+
+<hr/>
+
+<h2>Introduction</h2>
+
+<p>This package allows you to access <a href="https://en.wikipedia.org/wiki/Gazetteer">gazetteer</a> data released by the U.S. census bureau.
+This package is supplementary to the excellent <a href="https://github.com/walkerke/tigris">tigris</a> and the <a href="https://cran.r-project.org/web/packages/acs/index.html">acs</a> packages to work with U.S. census data.</p>
+
+<p>For now there is one data.frame &#39;state.areas.2010&#39; and 5 lists (one for each year) &hellip;</p>
+
+<ul>
+<li>gazetteer.2015</li>
+<li>gazetteer.2014</li>
+<li>gazetteer.2013</li>
+<li>gazetteer.2012</li>
+<li>gazetteer.2010</li>
+</ul>
+
+<p>The state.areas.2010 data.frame consists of state level gazetteer data from 2010 U.S. census. This data is consolidated from multiple sources, due to the fact that census bureau doesn&#39;t supply it in a single file.</p>
+
+<p>The state.areas.2010 is built from these sources</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations">Wikipedia entry for state abbreviations</a></li>
+<li><a href="https://www.census.gov/geo/reference/state-area.html">U.S. census bureau data for each state from 2010 Census</a></li>
+<li><a href="http://www2.census.gov/geo/docs/reference/state.txt">U.S. census bureau data for state FIPS/GNISID codes</a></li>
+</ul>
+
+<p>Although the state.areas.2010 is from 2010, this data should be fairly stable and not change (much).</p>
+
+<p>Each of the &#39;gazetteer.*&#39; list is a list of data.frames, one data.frame for one type of gazetteer data. The names of types of gazetteer data each list contains can be queried by</p>
+
+<pre><code class="r">devtools::install_github(&#39;bhaskarvk/usgazetteer&#39;)
+library(usgazetteer)
+names(gazetteer.2015)
+</code></pre>
+
+<p><br/>
+Individual data.frames can be access by their respective names.</p>
+
+<pre><code class="r">library(usgazetteer)
+counties.2015 &lt;- gazetteer.2015$Counties
+</code></pre>
+
+<p><br/>
+All the gazetteer files from 2010 to 2015 are obtained from <a href="http://www.census.gov/geo/maps-data/data/gazetteer.html">http://www.census.gov/geo/maps-data/data/gazetteer.html</a>. All the data found on the census.gov site is released under public domain.</p>
+
+  </div>
+
+  <div class="span3 offset1 sidebar">
+    <h2>Vignettes</h2>
+    <ul>
+      <li><a href="vignettes/about-usgazetteer.html">U.S. Census Gazetteer Data</a></li>
+    </ul>
+        <h2>Authors</h2>
+    <ul>
+      <li><a href='mailto:bhaskarvk@gmail.com'>Bhaskar Karambelkar</a> [aut, cre]</li>
+    </ul>
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
