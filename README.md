@@ -2,14 +2,14 @@
 
 **License**
 
-This package is released under [MIT license](http://opensource.org/licenses/mit-license.php). The data itself comes from [U.S. Census Bureau](http://www.census.gov/) who release it under [public domain](https://ask.census.gov/faq.php?id=5000&faqId=537).
+This package is released under [MIT license](http://opensource.org/licenses/mit-license.php). The data itself comes from [U.S. Census Bureau](http://www.census.gov/) who release it under [public domain](https://askacs.census.gov/faq.php?id=5000&faqId=537).
 
 ---
 
 ## Introduction
 
 This package allows you to access [gazetteer](https://en.wikipedia.org/wiki/Gazetteer) data released by the U.S. census bureau.
-This package is supplementary to the excellent [tigris](https://github.com/walkerke/tigris) and the [acs](https://cran.r-project.org/web/packages/acs/index.html) packages to work with U.S. census data.
+This package is supplementary to the excellent [tigris](https://cran.r-project.org/package=tigris) and the [acs](https://cran.r-project.org/package=acs) packages to work with U.S. census data.
 
 For now there is one data.frame 'state.areas.2010' and 5 lists (one for each year) ...
 
