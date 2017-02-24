@@ -3,3 +3,6 @@
 ^data-raw$
 ^data.RData$
 ^docs$
+^README.*$
+^\.travis\.yml$
+^appveyor\.yml$

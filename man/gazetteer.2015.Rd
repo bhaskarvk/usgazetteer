@@ -15,4 +15,3 @@ gazetteer.2015
 A list of datasets containing 2015 Gazetteer data from U.S. Census Bureau.
 }
 \keyword{datasets}
-

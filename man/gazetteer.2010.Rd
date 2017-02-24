@@ -15,4 +15,3 @@ gazetteer.2010
 A list of datasets containing 2010 Gazetteer data from U.S. Census Bureau.
 }
 \keyword{datasets}
-

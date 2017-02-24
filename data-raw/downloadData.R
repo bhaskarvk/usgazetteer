@@ -3,7 +3,7 @@ library(magrittr)
 
 
 # Census Gazetteer Files are available for these years
-years <- as.character(c(2010,2012:2015))
+years <- as.character(c(2010,2012:2016))
 
 fetch_html <- memoise::memoise(xml2::read_html)
 
@@ -71,9 +71,10 @@ gazetteer.2012 <- dfs[['2012']]
 gazetteer.2013 <- dfs[['2013']]
 gazetteer.2014 <- dfs[['2014']]
 gazetteer.2015 <- dfs[['2015']]
+gazetteer.2016 <- dfs[['2016']]
 
 rm(dfs,fetch_html,htmls,links,years,zipLists)
 
 devtools::use_data(gazetteer.2010, gazetteer.2012, gazetteer.2013,
-                   gazetteer.2014, gazetteer.2015,
+                   gazetteer.2014, gazetteer.2015, gazetteer.2016,
                    overwrite = TRUE)

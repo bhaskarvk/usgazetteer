@@ -15,4 +15,3 @@ gazetteer.2013
 A list of datasets containing 2013 Gazetteer data from U.S. Census Bureau.
 }
 \keyword{datasets}
-

@@ -1,7 +1,7 @@
 Package: usgazetteer
 Type: Package
 Title: Data Package for Gazetteer Files from U.S. Census Bureau
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Bhaskar", "Karambelkar", email = "bhaskarvk@gmail.com",
     role = c("aut", "cre"))
 Description: For now just the Gazetteer files as list of data.frames.
@@ -21,7 +21,7 @@ Suggests:
     memoise,
     knitr,
     rmarkdown
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 VignetteBuilder: knitr
 URL: https://github.com/bhaskarvk/usgazetteer
 BugReports: https://github.com/bhaskarvk/usgazetteer/issues

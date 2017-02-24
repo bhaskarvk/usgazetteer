@@ -6,6 +6,15 @@
 #' @source \url{http://www.census.gov/geo/reference/state-area.html}
 "state.areas.2010"
 
+
+#' 2016 Gazetteer data
+#'
+#' A list of datasets containing 2016 Gazetteer data from U.S. Census Bureau.
+#'
+#' @format A list of data.frames with appropriate names
+#' @source \url{http://www.census.gov/geo/maps-data/data/gazetteer2016.html}
+"gazetteer.2016"
+
 #' 2015 Gazetteer data
 #'
 #' A list of datasets containing 2015 Gazetteer data from U.S. Census Bureau.

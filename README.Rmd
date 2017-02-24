@@ -1,0 +1,82 @@
+---
+output: github_document
+---
+## R package for Post-2010 Census U.S. gazetteer data
+
+```{r, echo = FALSE}
+description <- readLines(system.file("DESCRIPTION", package='usgazetteer'))
+rvers <- stringr::str_match(grep("R\\s*\\(", description, value = TRUE), "[0-9]{1,4}\\.[0-9]{1,4}\\.[0-9]{1,4}")[1,1]
+```
+
+[![Project Status: Active – The project is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-green.svg)](/commits/master)
+
+[![Travis-CI Build Status](https://travis-ci.org/bhaskarvk/usgazetteer.svg?branch=master)](https://travis-ci.org/bhaskarvk/usgazetteer) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/bhaskarvk/usgazetteer?branch=master&svg=true)](https://ci.appveyor.com/project/bhaskarvk/usgazetteer)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+```{r, echo = FALSE}
+description <- readLines(system.file("DESCRIPTION", package='usgazetteer'))
+version <- gsub(" ", "", gsub("Version:", "", grep("Version:", description, value = TRUE)))
+```
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-`r rvers`-6666ff.svg)](https://cran.r-project.org/)  [![packageversion](https://img.shields.io/badge/Package%20version-`r version`-orange.svg?style=flat-square)](commits/master)
+ 
+**NOTE**: This is a large package (approx 50 MB) and may never be submitted to CRAN due to its size.
+
+----
+
+### Introduction
+
+This package allows you to access [gazetteer](https://en.wikipedia.org/wiki/Gazetteer) data released by the U.S. census bureau.
+This package is supplementary to the excellent [tigris](https://cran.r-project.org/package=tigris) and the [acs](https://cran.r-project.org/package=acs) packages to work with U.S. census data.
+
+### Installation
+
+```{r install, eval=FALSE}
+if(!require(devtools)) {
+  install.packages("devtools")
+}
+devtools::install_git('bhaskarvk/usgazetteer')
+```
+
+### Data Provided
+
+For now there is one data.frame 'state.areas.2010' and 6 lists (one for each year) ...
+
+- gazetteer.2016
+- gazetteer.2015
+- gazetteer.2014
+- gazetteer.2013
+- gazetteer.2012
+- gazetteer.2010
+
+The state.areas.2010 data.frame consists of state level gazetteer data from 2010 U.S. census. This data is consolidated from multiple sources, due to the fact that census bureau doesn't supply it in a single file.
+
+The state.areas.2010 is built from these sources
+
+- [Wikipedia entry for state abbreviations](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations)
+- [U.S. census bureau data for each state from 2010 Census](https://www.census.gov/geo/reference/state-area.html)
+- [U.S. census bureau data for state FIPS/GNISID codes](http://www2.census.gov/geo/docs/reference/state.txt)
+
+Although the state.areas.2010 is from 2010, this data should be fairly stable and not change (much).
+
+Each of the 'gazetteer.*' list is a list of data.frames, one data.frame for one type of gazetteer data. The names of types of gazetteer data each list contains can be queried by
+
+```{r names}
+library(usgazetteer)
+names(gazetteer.2016)
+```
+<br/>
+Individual data.frames can be access by their respective names.
+
+```{r df}
+library(usgazetteer)
+counties.2016 <- gazetteer.2016$Counties
+dplyr::glimpse(counties.2016)
+```
+
+<br/>
+All the gazetteer files from 2010 to 2016 are obtained from http://www.census.gov/geo/maps-data/data/gazetteer.html. All the data found on the census.gov site is released under public domain.
+
+### License
+
+This package is released under [MIT license](http://opensource.org/licenses/mit-license.php). The data itself comes from [U.S. Census Bureau](http://www.census.gov/) who release it under [public domain](https://askacs.census.gov/faq.php?id=5000&faqId=537).

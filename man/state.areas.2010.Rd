@@ -15,4 +15,3 @@ state.areas.2010
 data.frame containing U.S. States and Territories
 }
 \keyword{datasets}
-

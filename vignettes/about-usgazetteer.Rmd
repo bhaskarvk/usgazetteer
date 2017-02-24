@@ -37,14 +37,14 @@ Every geo data uses some kind of ID to uniquely determine a geographic entity. T
 
 ### The Data
 
-The package contains one data.frame called `state.areas.2010` and 5 lists, `gazetteer.2010`, `gazetteer.2012`, `gazetteer.2013`, `gazetteer.2014`, and `gazetteer.2015`.
+The package contains one data.frame called `state.areas.2010` and 6 lists, `gazetteer.2010`, `gazetteer.2012`, `gazetteer.2013`, `gazetteer.2014`, `gazetteer.2015`, and `gazetteer.2016`.
 
 **state.area.2010** contains state level gazetteer data, compiled from data from [U.S. Census Bureau](https://www.census.gov/geo/reference/state-area.html), and [Wikipedia](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations). In all the data.frame has 77 rows, 50 states + DC + Territories.
 
 Here's a small sample of it.
 
 ```{r, results = "asis", echo=FALSE}
-load("../data/state.areas.2010.rda")
+library(usgazetteer)
 knitr::kable(head(state.areas.2010[,c(1:9,23,24)]), format = 'html')
 ```
 
@@ -52,11 +52,10 @@ You get various geo-IDs for each state including FIPS/GNISID/USPS/USCG as well a
 
 In addition to the state level data, the `gazetteer.20*` lists each contain data.frames for gazetteer data for each type of geographic entity. Each element of the list is assigned a name that indicates the data that element holds. The suffix of the list name is indicative of the year for which the data was relased. e.g. gazetteer.2015 contains data valid from 2015.
 
-e.g. The names of data stored in the `gazetteer.2015` list is shown below.
+e.g. The names of data stored in the `gazetteer.2016` list is shown below.
 
 ```{r, results = "asis", echo=FALSE}
-load("../data/gazetteer.2015.rda")
-knitr::kable(data.frame(`Data Name`=names(gazetteer.2015)), format = 'html')
+knitr::kable(data.frame(`Data Name`=names(gazetteer.2016)), format = 'html')
 ```
 
 You can retrieve the names of any list using the standard `names(<list>)` call. e.g. `names(gazetteer.2014)`
@@ -64,8 +63,8 @@ You can retrieve the names of any list using the standard `names(<list>)` call. 
 To retrieve information from any particular gazetteer simply reference it from the list by its name.
 
 ```{r, results = "asis"}
-counties.2015 <- gazetteer.2015$Counties
-knitr::kable(head(counties.2015[,c(1:4,9:12)]),  format = 'html')
+counties.2016 <- gazetteer.2016$Counties
+knitr::kable(head(counties.2016[,c(1:4,9:12)]),  format = 'html')
 ```
 
 ### Using the Gazetteer Data
