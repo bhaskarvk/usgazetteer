@@ -1,0 +1,25 @@
+title: R package for Post-2010 Census U.S. gazetteer data
+authors:
+  Bhaskar Karambelkar:
+    href: https://www.karambelkar.info/
+
+template:
+  package: pkgdown.bvk
+  params:
+    bootswatch: yeti
+
+reference:
+  - title: Package Description
+    desc: ~
+    contents:
+      - '`usgazetteer`'
+  - title: Data
+    desc: ~
+    contents:
+      - '`gazetteer.2010`'
+      - '`gazetteer.2012`'
+      - '`gazetteer.2013`'
+      - '`gazetteer.2014`'
+      - '`gazetteer.2015`'
+      - '`gazetteer.2016`'
+      - '`state.areas.2010`'
